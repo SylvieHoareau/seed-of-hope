@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class IsometricCharacterRenderer : MonoBehaviour
 {
-
     public static readonly string[] staticDirections = { "Static N", "Static W", "Static S", "Static E" };
     public static readonly string[] runDirections = { "Run N", "Run W", "Run S", "Run E" };
 
@@ -11,41 +10,40 @@ public class IsometricCharacterRenderer : MonoBehaviour
 
     private void Awake()
     {
-        //cache the animator component
-        animator = GetComponent<animator>();
+        animator = GetComponent<Animator>();
     }
 
-
-    public void SetDirection(Vector2 direction) {
-
-        //use the Run states by default
+    public void SetDirection(Vector2 direction)
+    {
         string[] directionArray = null;
 
-        //measure the magnitude of the input
         if (direction.magnitude < .01f)
         {
-            //if we are basically standing still, we'll use the Static states
-            //we won't be able to calculate a direction if the user isn't pressing one
-            directionArray = staticStateHashes;
+            directionArray = staticDirections;
         }
         else
         {
-            //we can calculate wich direction we are going in
-            //use DirectionToIndex to get the index of the slice from the direction vector
-            //save the answer to lastDirection
-            directionArray = runStateHashes;
-            lastDirection = DirectionToIndex(direction, 8);
+            directionArray = runDirections;
+            lastDirection = DirectionToIndex(direction, 4); 
         }
 
-        //get the hash using the saved lastDirection
-        int stateHash = directionArray[lastDirection];
-
-        //tell the animator to play the requested state
-        animator.Play(stateHash);
+        string animationName = directionArray[lastDirection];
+        animator.Play(Animator.StringToHash(animationName));
     }
-    
 
-    
+    int DirectionToIndex(Vector2 direction, int sliceCount)
+    {
+        Vector2 normDirection = direction.normalized;
+        float step = 360f / sliceCount;
+        float angle = Vector2.SignedAngle(Vector2.up, normDirection);
+        angle += step / 2f;
+
+        if (angle < 0)
+            angle += 360;
+
+        return Mathf.FloorToInt(angle / step);
+    }
+
     void Update()
     {
         
