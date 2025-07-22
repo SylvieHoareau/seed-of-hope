@@ -1,27 +1,44 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class IsometricPlayerMovementController : MonoBehaviour
 {
-    
-    public float movementSpeed = 1f;
-    
-    Rigidbody2D rbody;
+    public float movementSpeed = 5f;
+    public LayerMask groundLayer;
+    public Transform groundCheck;
+    public float groundCheckRadius = 0.1f;
+
+    private Rigidbody2D rbody;
+    private bool isGrounded;
 
     private void Awake()
     {
         rbody = GetComponent<Rigidbody2D>();
+        rbody.gravityScale = 0f; // Pas de gravité dans un jeu isométrique
+        rbody.freezeRotation = true;
     }
 
-    // Update is called once per frame
     void FixedUpdate()
-{
-    Vector2 currentPos = rbody.position;
-    float horizontalInput = Input.GetAxis("Horizontal");
-    float verticalInput = Input.GetAxis("Vertical");
-    Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
-    inputVector = Vector2.ClampMagnitude(inputVector, 1);
-    Vector2 movement = inputVector * movementSpeed;
-    Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-        rbody.MovePosition(newPos);
-}
+    {
+        // Vérifie si le joueur touche le sol (utile si tu veux des actions au sol)
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        // Récupère les inputs
+        float inputX = Input.GetAxisRaw("Horizontal");
+        float inputY = Input.GetAxisRaw("Vertical");
+        Vector2 input = new Vector2(inputX, inputY).normalized;
+
+        // Applique directement la vélocité dans les deux axes (X et Y)
+        Vector2 velocity = input * movementSpeed;
+        rbody.velocity = velocity;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheck != null)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(groundCheck.position, groundCheckRadius);
+        }
+    }
 }
