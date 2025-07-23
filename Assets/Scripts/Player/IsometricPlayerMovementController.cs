@@ -30,7 +30,7 @@ public class IsometricPlayerMovementController : MonoBehaviour
 
         // Applique directement la vélocité dans les deux axes (X et Y)
         Vector2 velocity = input * movementSpeed;
-        rbody.velocity = velocity;
+        rbody.linearVelocity = velocity;
     }
 
     private void OnDrawGizmosSelected()
