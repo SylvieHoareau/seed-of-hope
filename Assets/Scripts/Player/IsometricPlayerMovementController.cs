@@ -22,5 +22,6 @@ public class IsometricPlayerMovementController : MonoBehaviour
         Vector2 velocity = input * movementSpeed;
 
         rbody.velocity = velocity;
+        rbody.linearVelocity = velocity;
     }
 }
