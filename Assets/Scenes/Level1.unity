@@ -119,67 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &498053683
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.22199284
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.59613633
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 999476956013116695, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3049001116667163836, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7770687777432645172, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
-      propertyPath: m_GravityScale
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5a01d9d0ad1e0674d8a3c459cf2de6a3, type: 3}
 --- !u!1 &575030638
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +162,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1075395076}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &692269184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 692269185}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &692269185
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 692269184}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.00876, y: 0.51874, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &776696393
@@ -7581,7 +7551,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 1.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1104827675
@@ -7668,7 +7638,7 @@ SpriteRenderer:
   m_Size: {x: 1.71, y: 3.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1257349168
@@ -7692,6 +7662,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 776696396}
   - {fileID: 575030640}
-  - {fileID: 498053683}
   - {fileID: 1257349168}
   - {fileID: 1104827675}
+  - {fileID: 692269185}
